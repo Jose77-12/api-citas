@@ -18,8 +18,6 @@ api-citas
 │       └── cita.js              # Modelo que define la estructura de una cita
 ├── terraform
 │   ├── main.tf                  # Configuración principal de Terraform
-│   ├── variables.tf             # Definición de variables para Terraform
-│   └── outputs.tf               # Especificación de salidas de la configuración de Terraform
 ├── package.json                 # Configuración de npm y dependencias
 ├── .gitignore                   # Archivos y carpetas a ignorar por Git
 └── README.md                    # Documentación del proyecto
