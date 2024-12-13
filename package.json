@@ -1,0 +1,19 @@
+{
+  "name": "api-citas",
+  "version": "1.0.0",
+  "description": "Módulo API HTTP para gestionar citas, escrito en Node.js y Express.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "author": "Tu Nombre",
+  "license": "MIT"
+}
