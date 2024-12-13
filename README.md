@@ -6,7 +6,7 @@ Este proyecto es un módulo API HTTP para gestionar citas, desarrollado en Node.
 
 El proyecto está organizado de la siguiente manera:
 
-```
+```bash
 api-citas
 ├── src
 │   ├── app.js                  # Punto de entrada de la aplicación
@@ -28,24 +28,30 @@ api-citas
 ## Instalación
 
 1. Clona el repositorio:
-   ```
+
+   ```bash
    git clone <URL_DEL_REPOSITORIO>
    ```
+
 2. Navega al directorio del proyecto:
-   ```
+
+   ```bash
    cd api-citas
    ```
+
 3. Instala las dependencias:
-   ```
+
+   ```bash
    npm install
    ```
 
 ## Ejecución
 
 Para iniciar la API, ejecuta el siguiente comando:
-```
-npm start
-```
+
+   ```bash
+   npm start
+   ```
 
 La API estará disponible en `http://localhost:3000`.
 
@@ -53,10 +59,11 @@ La API estará disponible en `http://localhost:3000`.
 
 Puedes realizar operaciones CRUD sobre las citas utilizando las siguientes rutas:
 
-- `POST /citas` - Crear una nueva cita
-- `GET /citas` - Obtener todas las citas
-- `PUT /citas/:id` - Actualizar una cita existente
-- `DELETE /citas/:id` - Eliminar una cita
+- `POST /appointments` - Crear una nueva cita
+- `GET /appointments/:id` - Obtener una cita específica
+- `PUT /appointments/:id` - Actualizar detalles de una cita
+- `DELETE /appointments/:id` - Eliminar una cita
+- `GET /appointments` - Listar todas las citas
 
 ## Contribuciones
 
