@@ -1,16 +1,20 @@
-const express = require('express');
-const CitasController = require('../controllers/citasController');
+import { Router } from 'express';
+const router = Router();
+import { createAppointment, getAppointment, updateAppointment, deleteAppointment, listAppointments } from '../controllers/citasController';
 
-const router = express.Router();
-const citasController = new CitasController();
+// Crear una nueva cita
+router.post('/appointments', createAppointment);
 
-const setCitasRoutes = (app) => {
-    router.post('/citas', citasController.crearCita);
-    router.get('/citas', citasController.obtenerCitas);
-    router.put('/citas/:id', citasController.actualizarCita);
-    router.delete('/citas/:id', citasController.eliminarCita);
+// Consultar una cita específica
+router.get('/appointments/:id', getAppointment);
 
-    app.use('/api', router);
-};
+// Actualizar detalles de una cita
+router.put('/appointments/:id', updateAppointment);
 
-module.exports = setCitasRoutes;
+// Eliminar una cita
+router.delete('/appointments/:id', deleteAppointment);
+
+// Listar todas las citas
+router.get('/appointments', listAppointments);
+
+export default router;

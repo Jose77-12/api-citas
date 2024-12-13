@@ -1,35 +1,24 @@
 provider "aws" {
-  region = var.region
+  region = "us-east-1"
 }
 
 resource "aws_instance" "citas_api" {
-  ami           = var.ami
-  instance_type = var.instance_type
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
 
   tags = {
-    Name = "CitasAPI"
+    Name = "JOBDIGITAL-API"
   }
 }
 
-resource "aws_db_instance" "citas_db" {
+resource "aws_db_instance" "default" {
   allocated_storage    = 20
-  engine             = "mysql"
-  engine_version     = "8.0"
-  instance_class     = "db.t2.micro"
-  name               = "citasdb"
-  username           = var.db_username
-  password           = var.db_password
-  skip_final_snapshot = true
-
-  tags = {
-    Name = "CitasDB"
-  }
-}
-
-output "api_instance_ip" {
-  value = aws_instance.citas_api.public_ip
-}
-
-output "db_instance_endpoint" {
-  value = aws_db_instance.citas_db.endpoint
+  engine               = "postgres"
+  engine_version       = "12.3"
+  instance_class       = "db.t2.micro"
+  name                 = "citas_db"
+  username             = "citas_user"
+  password             = "citas_password"
+  parameter_group_name = "default.postgres12"
+  skip_final_snapshot  = true
 }

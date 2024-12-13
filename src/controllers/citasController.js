@@ -1,43 +1,40 @@
-class CitasController {
-    constructor() {
-        this.citas = [];
-    }
+const citas = []; // Esto es solo un ejemplo, deberías usar una base de datos real
 
-    crearCita(req, res) {
-        const { fecha, hora, cliente, descripcion } = req.body;
-        const nuevaCita = { id: this.citas.length + 1, fecha, hora, cliente, descripcion };
-        this.citas.push(nuevaCita);
-        res.status(201).json(nuevaCita);
-    }
+export function createAppointment(req, res) {
+    const newCita = req.body;
+    citas.push(newCita);
+    res.status(201).send(newCita);
+}
 
-    obtenerCitas(req, res) {
-        res.status(200).json(this.citas);
-    }
-
-    actualizarCita(req, res) {
-        const { id } = req.params;
-        const { fecha, hora, cliente, descripcion } = req.body;
-        const citaIndex = this.citas.findIndex(cita => cita.id === parseInt(id));
-
-        if (citaIndex !== -1) {
-            this.citas[citaIndex] = { id: parseInt(id), fecha, hora, cliente, descripcion };
-            res.status(200).json(this.citas[citaIndex]);
-        } else {
-            res.status(404).json({ mensaje: 'Cita no encontrada' });
-        }
-    }
-
-    eliminarCita(req, res) {
-        const { id } = req.params;
-        const citaIndex = this.citas.findIndex(cita => cita.id === parseInt(id));
-
-        if (citaIndex !== -1) {
-            this.citas.splice(citaIndex, 1);
-            res.status(204).send();
-        } else {
-            res.status(404).json({ mensaje: 'Cita no encontrada' });
-        }
+export function getAppointment(req, res) {
+    const cita = citas.find(c => c.id === req.params.id);
+    if (cita) {
+        res.send(cita);
+    } else {
+        res.status(404).send({ message: 'Cita no encontrada' });
     }
 }
 
-module.exports = new CitasController();
+export function updateAppointment(req, res) {
+    const cita = citas.find(c => c.id === req.params.id);
+    if (cita) {
+        Object.assign(cita, req.body);
+        res.send(cita);
+    } else {
+        res.status(404).send({ message: 'Cita no encontrada' });
+    }
+}
+
+export function deleteAppointment(req, res) {
+    const index = citas.findIndex(c => c.id === req.params.id);
+    if (index !== -1) {
+        citas.splice(index, 1);
+        res.status(204).send();
+    } else {
+        res.status(404).send({ message: 'Cita no encontrada' });
+    }
+}
+
+export function listAppointments(req, res) {
+    res.send(citas);
+}
