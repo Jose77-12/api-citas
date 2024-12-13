@@ -30,7 +30,7 @@ api-citas
 1. Clona el repositorio:
 
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/Jose77-12/api-citas
    ```
 
 2. Navega al directorio del proyecto:
