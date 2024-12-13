@@ -6,8 +6,8 @@ export async function createAppointment(req, res) {
     res.status(201).send(newCita);
 }
 
-export function getAppointment(req, res) {
-    const cita = citas.obtenerCita(req.params.id);
+export async function getAppointment(req, res) {
+    const cita = await citas.obtenerCita(req.params.id);
     if (cita) {
         res.send(cita);
     } else {
@@ -15,9 +15,9 @@ export function getAppointment(req, res) {
     }
 }
 
-export function updateAppointment(req, res) {
+export async function updateAppointment(req, res) {
     const updatedCita = req.body;
-    const cita = citas.actualizarCita(req.params.id, updatedCita);
+    const cita = await citas.actualizarCita(req.params.id, updatedCita);
     if (cita) {
         res.send(cita);
     } else {
@@ -25,8 +25,8 @@ export function updateAppointment(req, res) {
     }
 }
 
-export function deleteAppointment(req, res) {
-    const cita = citas.eliminarCita(req.params.id);
+export async function deleteAppointment(req, res) {
+    const cita = await citas.eliminarCita(req.params.id);
     if (cita) {
         res.send(cita);
     } else {
@@ -34,7 +34,7 @@ export function deleteAppointment(req, res) {
     }
 }
 
-export function listAppointments(req, res) {
-    const citasList = citas.listarCitas();
+export async function listAppointments(req, res) {
+    const citasList = await citas.listarCitas();
     res.send(citasList);
 }

@@ -8,4 +8,4 @@ class Cita {
     }
 }
 
-module.exports = Cita;
+export default Cita;
