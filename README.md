@@ -11,7 +11,9 @@ api-citas
 ├── src
 │   ├── app.js                  # Punto de entrada de la aplicación
 │   ├── controllers
+│   │   └── citasORM.js          # Controlador ORM para manejar comunicación con la base de datos
 │   │   └── citasController.js   # Controlador para manejar operaciones CRUD de citas
+│   │   └── db.js                # Controllador para la la conexión con la base de datos
 │   ├── routes
 │   │   └── citasRoutes.js       # Definición de rutas HTTP para las citas
 │   └── models
