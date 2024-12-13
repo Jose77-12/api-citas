@@ -1,6 +1,6 @@
 import citas from './citasORM.js';
 
-async function createAppointment(req, res) {
+export async function createAppointment(req, res) {
     const newCita = req.body;
     await citas.crearCita(newCita);
     res.status(201).send(newCita);
